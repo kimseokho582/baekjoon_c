@@ -100,10 +100,10 @@ int main() {
 		labelend = i;
 	}
 
-	/*for (int i = 0; i < labelend; i++) {
+	for (int i = 0; i < labelend; i++) {
 		cout << labelname[i] << " " << labelvalue[i]<<endl;
 		
-	}*/
+	}
 
 	in.close();
 
@@ -143,14 +143,14 @@ int main() {
 			}
 
 		}
-		//cout<< data2 << endl;
+		cout<< data2 << endl;
 	}
 		
 
-	for (int i = 0; i < end+1; i++) {
+	/*for (int i = 0; i < end+1; i++) {
 		if (tmp[i][0] != '	' && tmp[i][0] != ' ' && tmp[i][0] != ':'&& (tmp[i][0] >= 48 && tmp[i][0] <= 57) || (tmp[i][0] >= 65 && tmp[i][0] <= 90)) {
-			cout << tmp[i] << /*" " <<i<<*/" "<< count[i] << endl;
+			cout << tmp[i] << " " <<i<<" "<< count[i] << endl;
 		}
-	}
+	}*/
 	
 }
