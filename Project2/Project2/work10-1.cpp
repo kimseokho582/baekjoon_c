@@ -9,7 +9,7 @@ using namespace std;
 int main() {
 	string data;
 	string data2;
-	char instr[8][8] = { "SEGMENT","ASSUME","MOV","ADD","SUB","CMP","JNE","INT" };
+	char instr[11][9] = { "SEGMENT","SEGMENTS","ASSUME","MOV","ADD","SUB","CMP","JNE","INT" ,"DW","DL" };
 	char regi[21][3] = { "AX","BX","CX","DX","AH","AL","BH","BL","CH","CL","DH","DL","CS","IP","SP","BP","SS","SI","DI","DS","ES" };
 	string labelname[100] = { "NULL" };
 	ifstream in;

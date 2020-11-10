@@ -43,18 +43,16 @@ int main() {
 		getline(in, data);
 		if (data[0] >= 65 && data[0] <= 90) {
 			labelvalue[r] = count[i];
-			//cout << count[i] << endl;
+
 			if (labelvalue[r] != 0) {
 				labelvalue[r] += 1;
 			}
-			//cout << labelvalue[r] << endl;
 			if (i == 0) {
 				labelnum[r] = i;
 			}
 			else {
 				labelnum[r] = i + 1;
 			}
-			//cout << labelnum[r] << endl;
 			r++;
 		}
 		if (i != 0) {
@@ -83,24 +81,18 @@ int main() {
 			if (data[j] != ',') {
 				tmp[i][k] = data[j];
 			}
-
 			if ((tmp[i][0] >= 48 && tmp[i][0] <= 57) || (tmp[i][0] >= 65 && tmp[i][0] <= 90)) {
 				if (k == 0) {
 
 					count[i] = check++;
 				}
-
 			}
 			if (flag == 1) {
 				i++;
 				k = -1;
 			}
-
-
 		}
-
 		end = i;
-
 		for (z; z < end + 1; z++) {
 			for (int i = 0; i < 11; i++) {
 				if (strcmp(tmp[z], instr[i]) == 0) {
@@ -110,7 +102,6 @@ int main() {
 					iii = 1;
 				}
 			}
-
 		}
 		for (reg; reg < end + 1; reg++) {
 			for (int i = 0; i < 21; i++) {
@@ -121,18 +112,12 @@ int main() {
 					rrreg = 1;
 				}
 			}
-
 		}
-
 	}
-
-
 	for (int i = 0; i < r; i++) {
 		if (i == 0) {
 			labelname[i] = tmp[labelnum[i]];
 		}
-
-
 		for (int j = 0; j < i; j++) {
 			if (tmp[labelnum[i]] == labelname[j]) {
 				break;
@@ -141,14 +126,10 @@ int main() {
 		}
 		labelend = i;
 	}
-
 	for (int i = 0; i < labelend; i++) {
 		cout << labelname[i] << " " << labelvalue[i] << endl;
-
 	}
-
 	in.close();
-
 
 	ifstream in2;
 	in2.open("my3.asm");
@@ -158,7 +139,6 @@ int main() {
 	string ee = "]";
 	while (!in2.eof()) {
 		getline(in2, data2);
-
 		for (int i = 0; i < labelend; i++) {
 			int length = labelname[i].length();
 			string changetmp;
@@ -168,32 +148,17 @@ int main() {
 			if (data2.find(labelname[i]) != string::npos) {
 				tmpget = data2.find(labelname[i]);
 				if (data2[tmpget + length] >= 65 && data2[tmpget + length] <= 90) {
-
 				}
 				else {
 					if (data2[0] >= 65 && data2[0] <= 90) {
-
 					}
 					else {
 						get = data2.find(labelname[i]);
 						data2.replace(data2.begin() + get, data2.begin() + get + length, changetmp.begin(), changetmp.end());
-
 					}
-
 				}
-
 			}
-
 		}
 		cout << data2 << endl;
 	}
-
-
-	/*cout << "-----------------------------------------------------------------------" << endl;
-	for (int i = 0; i < end + 1; i++) {
-		if (tmp[i][0] != '	' && tmp[i][0] != ' ' && tmp[i][0] != ':' && (tmp[i][0] >= 48 && tmp[i][0] <= 57) || (tmp[i][0] >= 65 && tmp[i][0] <= 90)) {
-			cout << tmp[i] <<" " << count[i] << endl;
-		}
-	}*/
-
 }
