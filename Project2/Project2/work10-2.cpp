@@ -84,12 +84,8 @@ int main() {
 				i++;
 				k = -1;
 			}
-
-
 		}
-
 		end = i;
-		
 		for (z; z < end+1; z++) {
 			for (int i = 0; i < 11; i++) {
 				if (strcmp(tmp[z], instr[i]) == 0) {
@@ -98,19 +94,13 @@ int main() {
 					}
 					zzz=1;
 				}
-			}
-			
+			}	
 		}
-
 	}
-
-
 	for (int i = 0; i < r; i++) {
 		if (i == 0) {
 			labelname[i] = tmp[labelnum[i]];
 		}
-
-
 		for (int j = 0; j < i; j++) {
 			if (tmp[labelnum[i]] == labelname[j]) {
 				break;
@@ -119,15 +109,10 @@ int main() {
 		}
 		labelend = i;
 	}
-
 	for (int i = 0; i < labelend; i++) {
 		cout << labelname[i] << " " << labelvalue[i]<<endl;
-
 	}
-
 	in.close();
-
-
 	ifstream in2;
 	in2.open("my2.asm");
 	int tmpget = 0;
@@ -146,7 +131,6 @@ int main() {
 			if (data2.find(labelname[i]) != string::npos) {
 				tmpget = data2.find(labelname[i]);
 				if (data2[tmpget + length] >= 65 && data2[tmpget + length] <= 90) {
-
 				}
 				else {
 					if (data2[0] >= 65 && data2[0] <= 90) {
@@ -155,24 +139,12 @@ int main() {
 					else {
 						get = data2.find(labelname[i]);
 						data2.replace(data2.begin() + get, data2.begin() + get + length, changetmp.begin(), changetmp.end());
-
 					}
-
 				}
-
 			}
-
 		}
 		cout<< data2 << endl;
 	}
-
-
-	/*cout << "-----------------------------------------------------------------------" << endl;
-	for (int i = 0; i < end + 1; i++) {
-		if (tmp[i][0] != '	' && tmp[i][0] != ' ' && tmp[i][0] != ':' && (tmp[i][0] >= 48 && tmp[i][0] <= 57) || (tmp[i][0] >= 65 && tmp[i][0] <= 90)) {
-			cout << tmp[i] <<" " << count[i] << endl;
-		}
-	}*/
 
 }
 

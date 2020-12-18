@@ -2,7 +2,6 @@
 #include <string>
 #include <fstream>
 using namespace std;
-
 int main() {
 	string data;
 	string data2;
@@ -11,7 +10,6 @@ int main() {
 	string labelname[100] = { "NULL" };
 	ifstream in;
 	in.open("my3.asm");
-
 	int j, k;
 	int r = 0;
 	int labelvalue[100] = { 0, };
@@ -29,30 +27,23 @@ int main() {
 	int rrreg = 0;
 	while (!in.eof()) {
 		if (z == 0) {
-			z = i;
-		}
+			z = i; }
 		else {
-			z = i + 1;
-		}
+			z = i + 1; }
 		if (reg == 0) {
-			reg = i;
-		}
+			reg = i; }
 		else {
-			reg = i + 1;
-		}
+			reg = i + 1; }
 		getline(in, data);
 		if (data[0] >= 65 && data[0] <= 90) {
 			labelvalue[r] = count[i];
 
 			if (labelvalue[r] != 0) {
-				labelvalue[r] += 1;
-			}
+				labelvalue[r] += 1; 	}
 			if (i == 0) {
-				labelnum[r] = i;
-			}
+				labelnum[r] = i;	}
 			else {
-				labelnum[r] = i + 1;
-			}
+				labelnum[r] = i + 1;	}
 			r++;
 		}
 		if (i != 0) {
@@ -65,12 +56,10 @@ int main() {
 			check += 1;
 			iii = 0;
 		}
-
 		if (rrreg == 1) {
 			check += 2;
 			rrreg = 0;
 		}
-
 		for (j = 0, k = 0; j < data.length(); k++, j++) {
 			flag = 0;
 			if (data[j] == '	' || data[j] == ' ' || data[j] == ':') {
@@ -130,7 +119,6 @@ int main() {
 		cout << labelname[i] << " " << labelvalue[i] << endl;
 	}
 	in.close();
-
 	ifstream in2;
 	in2.open("my3.asm");
 	int tmpget = 0;
