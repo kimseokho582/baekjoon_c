@@ -1,2 +1,4 @@
-﻿  10828.cpp
+﻿  11650.cpp
+C:\Users\kim\Documents\GitHub\baekjoon\Project2\Project2\11650.cpp(16,6): warning C4101: 'firstTmp' :참조되지 않은 지역 변수입니다.
+C:\Users\kim\Documents\GitHub\baekjoon\Project2\Project2\11650.cpp(16,16): warning C4101: 'secondTmp' :참조되지 않은 지역 변수입니다.
   Project2.vcxproj -> C:\Users\kim\Documents\GitHub\baekjoon\Project2\Debug\Project2.exe
