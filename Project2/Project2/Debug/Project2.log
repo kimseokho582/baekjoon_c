@@ -1,5 +1,2 @@
-﻿  1697.cpp
-C:\Users\kim\Documents\GitHub\baekjoon\Project2\Project2\1697.cpp(4,1): warning C4005: 'SIZE_MAX': 매크로 재정의
-C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\VC\Tools\MSVC\14.24.28314\include\limits.h(62): message : 'SIZE_MAX'의 이전 정의를 참조하십시오.
-C:\Users\kim\Documents\GitHub\baekjoon\Project2\Project2\1697.cpp(12,14): warning C4553: '==': 식의 결과가 사용되지 않습니다. '='을(를) 의도했습니까?
+﻿  1764.cpp
   Project2.vcxproj -> C:\Users\kim\Documents\GitHub\baekjoon\Project2\Debug\Project2.exe
