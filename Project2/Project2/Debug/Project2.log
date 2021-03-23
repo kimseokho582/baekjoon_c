@@ -1,3 +1,4 @@
-﻿  1916.cpp
-C:\Users\kim\Documents\GitHub\baekjoon\Project2\Project2\1916.cpp(22,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+﻿  1865.cpp
+C:\Users\kim\Documents\GitHub\baekjoon\Project2\Project2\1865.cpp(18,21): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\kim\Documents\GitHub\baekjoon\Project2\Project2\1865.cpp(28,20): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
   Project2.vcxproj -> C:\Users\kim\Documents\GitHub\baekjoon\Project2\Debug\Project2.exe
