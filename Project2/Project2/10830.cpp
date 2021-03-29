@@ -1,13 +1,13 @@
 #include <iostream>
 using namespace std;
 
-int ans[5][5];
-int x[5][5];
+long long ans[5][5];
+long long x[5][5];
+long long tmp[5][5];
+long long N, T;
 
-int N, T;
+void calc(long long xx[5][5], long long yy[5][5]) {
 
-void calc(int xx[5][5],int yy[5][5]) {
-	int tmp[5][5];
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
 			tmp[i][j] = 0;
@@ -19,29 +19,34 @@ void calc(int xx[5][5],int yy[5][5]) {
 	}
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			ans[i][j] = tmp[i][j];
+			xx[i][j] = tmp[i][j];
 		}
 	}
 }
 
 
 int main() {
+	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
 	 cin >> N >> T;
 
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
-			cin >> ans[i][j];
-			x[i][j] = ans[i][j];
-		}
+			cin >>x[i][j];
+		}ans[i][i] = 1;
 	}
-	while (T > 1) {
-		calc(ans,x);
-		T--;
+	while (T > 0)
+	{
+		if (T % 2==1) {
+			calc(ans, x);
+		
+		}
+		calc(x, x);
+		T /= 2;
 	}
 
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < N; j++) {
 			cout << ans[i][j] << " ";
-		}cout << endl;
+		}cout << "\n";
 	}
 }
