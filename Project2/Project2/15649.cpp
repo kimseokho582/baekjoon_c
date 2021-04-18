@@ -5,8 +5,9 @@ int N, M;
 int table[9];
 int check[9];
 
-void search(int num, int cnt)
+void search(int cnt)
 {
+    cout << "cnt: " << cnt << endl;
     if (cnt == M)
     {
         for (int i = 0; i < M; i++)
@@ -20,7 +21,8 @@ void search(int num, int cnt)
         {
             check[i] = 1;
             table[cnt] = i;
-            search(i + 1, cnt + 1);
+            cout << "table: " << table[cnt] << endl;
+            search(cnt + 1);
             check[i] = 0;
         }
     }
@@ -29,5 +31,5 @@ void search(int num, int cnt)
 int main() {
     ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
     cin >> N >> M;
-    search(1, 0);
+    search( 0);
 }
