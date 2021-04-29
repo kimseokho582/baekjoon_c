@@ -73,9 +73,13 @@ void makeW(int cnt) {
 }
 
 
-
+int GCD(int a, int b) {
+	cout << "a: " << a << "b " << b << endl;
+	if (a == 0) return b;
+	return GCD(b % a, a);
+}
 int main() {
-	cin >> N >> M;
+	/*cin >> N >> M;
 	for (int i = 0; i < N; i++) {
 		for (int j = 0; j < M; j++) {
 			cin >> table[i][j];
@@ -96,5 +100,7 @@ int main() {
 		}
 	}
 
-	cout << ans;
+	cout << ans;*/
+	int a = 12, b = 8;
+	cout<<GCD(a, b);
 }
