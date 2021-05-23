@@ -1,56 +1,32 @@
 #include <iostream>
-#include <algorithm>
+#include <vector>
+#include <cstring>
 using namespace std;
 
-int cardLeft[2001];
-int cardRight[2001];
-int score[2001] = { 0, };
-int N;
-int idxLeft = 0, idxRight = 0;
-int score = 0, scoreMax = 0;
+int n;
+vector<int> Left, Right;
+int dp[2020][2020];
 
+int solve(int i, int j) {
 
-void calc(int idxLeft, int idxRight) {
-	for (int i = idxLeft; i < N; i++) {
-		cout << cardLeft[i] << " ";
-	}cout << endl;
-	for (int i = idxRight; i < N; i++) {
-		cout << cardRight[i] << " ";
-	}cout << endl;
-
-	if (idxLeft == N || idxRight == N) {
-		int sum = 0;
-		for (int i = 0; i < N; i++) {
-
-		}
-		return;
-	}
-	
-	if (cardLeft[idxLeft] <= cardRight[idxRight]) {
-		idxLeft++;
-		calc(idxLeft, idxRight);
-		idxLeft--;
+	if (i >= n || j >= n) {
 		
-		score[idxRight] = 0;
-
-		idxLeft++;  idxRight++;
-		calc(idxLeft, idxRight);
-		idxLeft--; idxRight--;
+		return dp[i][j] = 0;
 	}
-	else {
-		score[idxRight] = cardRight[idxRight];
-		idxRight++;
-		calc(idxLeft, idxRight);
+	if (dp[i][j] != -1) return dp[i][j];
+	if (Left[i] > Right[j]) {
+		dp[i][j] = max(dp[i][j], solve(i, j + 1) + Right[j]);
 	}
-
+	dp[i][j] = max(dp[i][j], solve(i + 1, j));
+	dp[i][j] = max(dp[i][j], solve(i + 1, j + 1));
+	return dp[i][j];
 }
 
-
 int main() {
-	cin >> N;
-	for (int j = 0; j < N; j++) cin >> cardLeft[j];
-	for (int j = 0; j < N; j++) cin >> cardRight[j];
-
-	calc(idxLeft, idxRight);
-	cout << "´ä"<<scoreMax << endl;
+	ios_base::sync_with_stdio(0); cin.tie(0);
+	cin >> n; Left = vector<int>(n); Right = vector<int>(n);
+	for (int i = 0; i < n; i++) cin >> Left[i];
+	for (int j = 0; j < n; j++) cin >> Right[j];
+	memset(dp, -1, sizeof(dp));
+	cout << solve(0, 0);
 }
