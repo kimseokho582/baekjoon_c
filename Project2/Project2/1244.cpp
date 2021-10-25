@@ -1,55 +1,38 @@
 #include <iostream>
+#include <vector>
+#include <queue>
+
 using namespace std;
 
-int switchState[200] = { 0, };
-int genderNum[][3] = { 0, };
-
-int times;
-void calc(int n,int i) {
-	if (genderNum[i][0] == 1) {
-		for (int j = 1; j <= n; j++) {
-			if (j % genderNum[i][1] == 0)
-				switchState[j] = !switchState[j];
-		}
-	}
-	else if (genderNum[i][0] == 2) {
-		int femaleNum = genderNum[i][1];
-		for(int i=0;i<n/2+1;i++){
-
-
-			if (switchState[femaleNum - i] == switchState[femaleNum + i]) {
-				if (i == 0) {
-					switchState[femaleNum] = !switchState[femaleNum];
-				}
-				else {
-					switchState[femaleNum - i] = !switchState[femaleNum - i];
-					switchState[femaleNum + i] = !switchState[femaleNum + i];
-				}
-
-			}
-			else if (switchState[femaleNum - i] != switchState[femaleNum + i])
-				break;
-
-		}
-	}
-
-}
-
+int table[102];
 
 int main() {
-	int n;  cin >> n;
-
+	int n; cin >> n;
+	table[0] = -1;
 	for (int i = 1; i <= n; i++) {
-		cin >> switchState[i];
+		cin >> table[i];
 	}
-	cin >> times;
-	for (int i = 0; i < times; i++) {
-		cin >> genderNum[i][0] >> genderNum[i][1];
-		calc(n,i);
+	int t; cin >> t;
+	while (t--) {
+		int a, b; cin >> a >> b;
+		if (a == 1) {
+			for (int i = 1; i * b <= n; i++) {
+				table[b * i] = !table[b * i];
+			}
+		}
+		else if (a == 2) {
+			table[b] = !table[b];
+			for (int i = 1; table[b - i] == table[b + i]; i++) {
+				if (b - i<1 || b + i>n)break;
+				table[b-i] = !table[b-i];
+				table[b+i] = !table[b+i];
+			}
+		}
 	}
 	for (int i = 1; i <= n; i++) {
-		cout<< switchState[i]<<" ";
-		if (i % 20 == 0)
+		cout << table[i] << " ";
+		if (i % 20 == 0&&i!=0) {
 			cout << endl;
+		}
 	}
 }
