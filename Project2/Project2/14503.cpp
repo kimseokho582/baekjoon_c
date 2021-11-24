@@ -3,7 +3,7 @@
 #include <queue>
 using namespace std;
 
-int table[31][31];
+int table[51][51];
 int n, m, r, c, d;
 
 int dir[4][3] = {
@@ -37,10 +37,10 @@ void calc (int nr, int nc, int nd) {
 		cout << answer;
 		exit(0);
 	}
-	if (0<=br&&br<n&&0<=bc&&bc<m) {	
-	calc(br, bc, nd);
-	}
 
+	calc(br, bc, nd);
+
+	
 }
 
 int main() {
